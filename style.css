@@ -23,6 +23,7 @@ h {
 
 h2 {
   font-size: 4.5rem;
+  font-weight: normal;
 }
 
 form {
@@ -36,6 +37,7 @@ form {
 }
 
 .column {
+  text-align: left;
   float: left;
   flex: 50%;
 }
@@ -141,8 +143,10 @@ hr {
   transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
 }
 
-.checkbox {
-  width: 1vw;
+input[type=radio] {
+    border: 0px;
+    width: 2em;
+    height: 2em;
 }
 
 /* .container {
@@ -209,4 +213,54 @@ hr {
 
 label {
   font-size: 3.6rem;
+}
+
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label {
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #fff;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.6rem;
+    height: 1.6rem;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: rgba(255, 255, 255, 1);
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 1.2rem;
+    height: 1.2rem;
+    background: #49b7e3;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
 }
