@@ -34,12 +34,17 @@ form {
   width: auto;
   height: auto;
   margin: 20px;
+  height: fit-content;
+  text-align: left;
+  padding-left: 10vw;
+  padding-right: 5vw;
 }
 
 .column {
   text-align: left;
   float: left;
   flex: 50%;
+  margin-bottom: 1vh;
 }
 
 .row:after {
@@ -143,10 +148,38 @@ hr {
   transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
 }
 
+.textInput {
+  display: inline-block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  /* height: 3.6rem; */
+  font-size: 3rem;
+  font-family: station;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+  width: 80%;
+  margin: 5px;
+  padding: 10px 20px;
+  border: 1px solid #b7b7b7;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: rgba(252, 252, 252, 1);
+  -webkit-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2) inset;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.66);
+  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+
 input[type=radio] {
-    border: 0px;
-    width: 2em;
-    height: 2em;
+  border: 0px;
+  width: 2em;
+  height: 2em;
 }
 
 /* .container {
@@ -155,7 +188,6 @@ input[type=radio] {
   background-image: url("media/wallpaper2.png");
   background-position: center;
 } */
-
 /* @media screen and (min-width: 64em) {
   .contents {
     max-width: 54rem;
@@ -213,54 +245,69 @@ input[type=radio] {
 
 label {
   font-size: 3.6rem;
+  padding-left: 100px;
 }
 
 [type="radio"]:checked,
 [type="radio"]:not(:checked) {
-    position: absolute;
-    left: -9999px;
+  position: absolute;
+  left: -9999px;
 }
-[type="radio"]:checked + label,
-[type="radio"]:not(:checked) + label {
-    position: relative;
-    padding-left: 28px;
-    cursor: pointer;
-    line-height: 20px;
-    display: inline-block;
-    color: #fff;
+
+[type="radio"]:checked+label,
+[type="radio"]:not(:checked)+label {
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  line-height: 20px;
+  display: inline-block;
+  color: #fff;
 }
-[type="radio"]:checked + label:before,
-[type="radio"]:not(:checked) + label:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 1.6rem;
-    height: 1.6rem;
-    border: 1px solid #ddd;
-    border-radius: 100%;
-    background: rgba(255, 255, 255, 1);
+
+[type="radio"]:checked+label:before,
+[type="radio"]:not(:checked)+label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.6rem;
+  height: 1.6rem;
+  border: 1px solid #ddd;
+  border-radius: 100%;
+  background: rgba(255, 255, 255, 1);
 }
-[type="radio"]:checked + label:after,
-[type="radio"]:not(:checked) + label:after {
-    content: '';
-    width: 1.2rem;
-    height: 1.2rem;
-    background: #49b7e3;
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    border-radius: 100%;
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
+
+[type="radio"]:checked+label:after,
+[type="radio"]:not(:checked)+label:after {
+  content: '';
+  width: 1.2rem;
+  height: 1.2rem;
+  background: #49b7e3;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
-[type="radio"]:not(:checked) + label:after {
-    opacity: 0;
-    -webkit-transform: scale(0);
-    transform: scale(0);
+
+[type="radio"]:not(:checked)+label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
 }
-[type="radio"]:checked + label:after {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
+
+[type="radio"]:checked+label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+.number {
+  float: right;
+  font-size: 2rem;
+}
+
+.questionTitle {
+  margin-bottom: 1vh
 }

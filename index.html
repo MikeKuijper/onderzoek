@@ -9,38 +9,18 @@
   <title>Onderzoek</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
   <link rel="shortcut icon" type="image/png" href="./media/favicon.png" />
-  <script>
-    var bgImageArray = ["bg1.png", "bg2.png", "bg3.png"],
-      base = "./media/",
-      secs = 8;
-    bgImageArray.forEach(function(img) {
-      new Image().src = base + img;
-    });
-
-    function backgroundSequence() {
-      window.clearTimeout();
-      var k = 0;
-      for (i = 0; i < bgImageArray.length; i++) {
-        setTimeout(function() {
-          document.getElementById('header').style.background = "url(" + base + bgImageArray[k] + ") no-repeat center center fixed";
-          document.getElementById('header').style.backgroundSize = "cover";
-          if ((k + 1) === bgImageArray.length) {
-            setTimeout(function() {
-              backgroundSequence()
-            }, (secs * 1000))
-          } else {
-            k++;
-          }
-        }, (secs * 1000) * i)
-      }
-    }
-    backgroundSequence();
-  </script>
+  <script src="script.js"></script>
 </head>
 
 <body>
   <section id="header" class="header" style="height: 100%">
-    <div>
+    <div id='thanks' style="visibility: hidden; text-align: center; vertical-align: middle; position: absolute; top: 30%; margin-top: -50px; text-align: center;">
+      <div style="text-align: center; width: 100vw">
+        <h1 class="title">Dankjewel!</h1>
+        <h1 class="subtitle" style="opacity: 1">De enquete wordt verwerkt</h1>
+      </div>
+    </div>
+    <div id="everything">
       <br>
       <h2 class="title" style="color: #ffffff;">Onderzoek</h2>
       <!-- <br> -->
@@ -49,37 +29,36 @@
         <h2 class="subtitle" style="text-align: center; font-size: 3rem">Door het invullen van deze vragenlijst gaat u akkoord met onze Algemene Voorwaarden</h2>
       </div>
 
-      <br>
-
-      <h2 class="title" style="color: #ffffff; font-size: 4rem;">Persoonlijke informatie</h2>
+      <!-- <h2 class="title" style="color: #ffffff; font-size: 4rem;">Persoonlijke informatie</h2> -->
       <!-- Hoe zie je jezelf? -->
-      <form style="height: fit-content; text-align: left; padding-left: 10vw; padding-right: 5vw">
-        <h2 style="float: right; font-size: 2rem;">1</h2>
-        <h2 style="margin-bottom: 0px;">Hoe zie je jezelf?</h2>
-        <div class="row">
-          <div class="column">
-            <input type="radio" id="a1" name="selector">
-            <label for="a1">Jongen</label>
+      <div id="content">
+        <!-- <form>
+          <h2 class="number">1</h2>
+          <h2 class="questionTitle">Hoe zie je jezelf?</h2>
+          <div class="row">
+            <div class="column">
+              <input type="radio" id="a1" name="selector">
+              <label for="a1">Jongen</label>
+            </div>
+            <div class="column">
+              <input type="radio" id="a2" name="selector">
+              <label for="a2">Meisje</label>
+            </div>
           </div>
-          <div class="column">
-            <input type="radio" id="a2" name="selector">
-            <label for="a2">Meisje</label>
+          <div class="row">
+            <div class="column">
+              <input type="radio" id="b1" name="selector">
+              <label for="b1">Anders</label>
+            </div>
+            <div class="column">
+              <input type="radio" id="b2" name="selector">
+              <label for="b2" style="font-size: 1.2em;">Zeg ik liever niet</label>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="column">
-            <input type="radio" id="b1" name="selector">
-            <label for="b1">Anders</label>
-          </div>
-          <div class="column">
-            <input type="radio" id="b2" name="selector">
-            <label for="b2" style="font-size: 1.2em;">Zeg ik liever niet</label>
-          </div>
-        </div>
-        <br>
-      </form>
-      <!-- Woon je in Leiden? -->
-      <form style="height: fit-content; text-align: left; padding-left: 10vw; padding-right: 5vw">
+          <br>
+        </form> -->
+        <!-- Woon je in Leiden? -->
+        <!-- <form style="height: fit-content; text-align: left; padding-left: 10vw; padding-right: 5vw">
         <h2 style="float: right; font-size: 2rem;">2</h2>
         <h2 style="margin-bottom: 0px;">Woon je in Leiden?</h2>
         <div class="row">
@@ -93,18 +72,18 @@
           </div>
         </div>
         <br>
-      </form>
-      <!-- Hoe oud ben je? -->
-      <form style="height: fit-content; text-align: left; padding-left: 10vw; padding-right: 5vw">
+      </form> -->
+        <!-- Hoe oud ben je? -->
+        <!-- <form style="height: fit-content; text-align: left; padding-left: 10vw; padding-right: 5vw">
         <h2 style="float: right; font-size: 2rem;">3</h2>
         <h2 style="margin-bottom: 0px;">Hoe oud ben je?</h2>
         <div class="row">
           <input class="numberInput" type="number" pattern="[0-9]"></input>
         </div>
         <br>
-      </form>
-      <!-- Woon je in Leiden? -->
-      <form style="height: fit-content; text-align: left; padding-left: 10vw; padding-right: 5vw">
+      </form> -->
+        <!-- Woon je in Leiden? -->
+        <!-- <form style="height: fit-content; text-align: left; padding-left: 10vw; padding-right: 5vw">
         <h2 style="float: right; font-size: 2rem;">4</h2>
         <h2 style="margin-bottom: 0px;">Woon je in Leiden?</h2>
         <div class="row">
@@ -118,12 +97,12 @@
           </div>
         </div>
         <br>
-      </form>
-      <br>
-      <!-- Gebruik social media? -->
-      <h2 class="title" style="color: #ffffff; font-size: 4rem;">Gebruik social media</h2>
-      <!-- Heb je Instagram? -->
-      <form style="height: fit-content; text-align: left; padding-left: 10vw; padding-right: 5vw">
+      </form> -->
+        <!-- <br> -->
+        <!-- Gebruik social media? -->
+        <!-- <h2 class="title" style="color: #ffffff; font-size: 4rem;">Gebruik social media</h2> -->
+        <!-- Heb je Instagram? -->
+        <!-- <form style="height: fit-content; text-align: left; padding-left: 10vw; padding-right: 5vw">
         <h2 style="float: right; font-size: 2rem;">5</h2>
         <h2 style="margin-bottom: 0px;">Heb je Instagram?</h2>
         <div class="row">
@@ -137,9 +116,9 @@
           </div>
         </div>
         <br>
-      </form>
-      <!-- Heb je SnapChat? -->
-      <form style="height: fit-content; text-align: left; padding-left: 10vw; padding-right: 5vw">
+      </form> -->
+        <!-- Heb je SnapChat? -->
+        <!-- <form style="height: fit-content; text-align: left; padding-left: 10vw; padding-right: 5vw">
         <h2 style="float: right; font-size: 2rem;">6</h2>
         <h2 style="margin-bottom: 0px;">Heb je SnapChat?</h2>
         <div class="row">
@@ -153,9 +132,9 @@
           </div>
         </div>
         <br>
-      </form>
-      <!-- Hoe lang zit je dagelijks op social media? -->
-      <form style="height: fit-content; text-align: left; padding-left: 10vw; padding-right: 5vw">
+      </form> -->
+        <!-- Hoe lang zit je dagelijks op social media? -->
+        <!-- <form style="height: fit-content; text-align: left; padding-left: 10vw; padding-right: 5vw">
         <h2 style="float: right; font-size: 2rem;">7</h2>
         <h2 style="margin-bottom: 0px;">Hoe lang zit je dagelijks op social media?</h2>
         <div class="row">
@@ -179,9 +158,9 @@
           </div>
         </div>
         <br>
-      </form>
-      <!-- Woon je in Leiden? -->
-      <form style="height: fit-content; text-align: left; padding-left: 10vw; padding-right: 5vw">
+      </form> -->
+        <!-- Woon je in Leiden? -->
+        <!-- <form style="height: fit-content; text-align: left; padding-left: 10vw; padding-right: 5vw">
         <h2 style="float: right; font-size: 2rem;">8</h2>
         <h2 style="margin-bottom: 0px;">Woon je in Leiden?</h2>
         <div class="row">
@@ -195,17 +174,48 @@
           </div>
         </div>
         <br>
-      </form>
-
+      </form> -->
+      </div>
 
       <br>
-      <button class="button">Inleveren</button>
+      <button class="button" onclick="send()">Klaar</button>
 
       <footer>
         <h2 class="subtitle" style="text-align: center; font-size: 3rem">Gemaakt door Jolanda, Stijn, Martijn en Mike</h2>
       </footer>
       <br>
+    </div>
   </section>
 </body>
+
+<script>
+  getQuestions()
+
+  var bgImageArray = ["bg1.png", "bg2.png", "bg3.png"],
+    base = "./media/",
+    secs = 8;
+  bgImageArray.forEach(function(img) {
+    new Image().src = base + img;
+  });
+
+  function backgroundSequence() {
+    window.clearTimeout();
+    var k = 0;
+    for (i = 0; i < bgImageArray.length; i++) {
+      setTimeout(function() {
+        document.getElementById('header').style.background = "url(" + base + bgImageArray[k] + ") no-repeat center center fixed";
+        document.getElementById('header').style.backgroundSize = "cover";
+        if ((k + 1) === bgImageArray.length) {
+          setTimeout(function() {
+            backgroundSequence()
+          }, (secs * 1000))
+        } else {
+          k++;
+        }
+      }, (secs * 1000) * i)
+    }
+  }
+  backgroundSequence();
+</script>
 
 </html>

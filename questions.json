@@ -1,0 +1,66 @@
+{
+  "sections": [{
+    "name": "Persoonlijke informatie",
+    "questions": [{
+        "question": "Hoe zie je jezelf?",
+        "type": "multipleChoice",
+        "answers": [
+          "Jongen", "Meisje", "Anders", "Zeg ik liever niet"
+        ],
+        "required": false
+      }, {
+        "question": "Waar woon je?",
+        "type": "multipleChoice",
+        "answers": [
+          "Leiden", "Voorschoten", "Wassenaar", "Leiderdorp"
+        ],
+        "required": false
+      },
+      {
+        "question": "Hoe heet je?",
+        "type": "text",
+        "required": false
+      },
+      {
+        "question": "Hoe oud ben je?",
+        "type": "number",
+        "required": false
+      }
+    ]
+  }, {
+    "name": "Mediagebruik",
+    "questions": [{
+        "question": "Heb je Instagram?",
+        "type": "multipleChoice",
+        "answers": [
+          "Ja", "Nee"
+        ],
+        "required": true
+      }, {
+        "question": "Heb je SnapChat?",
+        "type": "multipleChoice",
+        "answers": [
+          "Ja", "Nee"
+        ],
+        "required": true
+      },
+      {
+        "question": "Heb je Facebook?",
+        "type": "multipleChoice",
+        "answers": [
+          "Ja", "Nee"
+        ],
+        "required": true
+      },
+      {
+        "question": "Hoe lang zit je dagelijks op social media?",
+        "type": "multipleChoice",
+        "answers": [
+          "&lt30 min", "30 - 60 min", "1 - 2 uur", "&gt2 uur"
+        ],
+        "required": true
+      }
+    ]
+  }],
+  "survey": ""
+}
