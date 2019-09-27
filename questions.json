@@ -2,31 +2,28 @@
   "sections": [{
     "name": "Persoonlijke informatie",
     "questions": [{
-        "question": "Hoe zie je jezelf?",
-        "type": "multipleChoice",
-        "answers": [
-          "Jongen", "Meisje", "Anders", "Zeg ik liever niet"
-        ],
-        "required": false
-      }, {
-        "question": "Waar woon je?",
-        "type": "multipleChoice",
-        "answers": [
-          "Leiden", "Voorschoten", "Wassenaar", "Leiderdorp"
-        ],
-        "required": false
-      },
-      {
-        "question": "Hoe heet je?",
-        "type": "text",
-        "required": false
-      },
-      {
-        "question": "Hoe oud ben je?",
-        "type": "number",
-        "required": false
-      }
-    ]
+      "question": "In welke klas zit je?",
+      "type": "text",
+      "required": true
+    }, {
+      "question": "Hoe zie je jezelf?",
+      "type": "multipleChoice",
+      "answers": [
+        "Jongen", "Meisje", "Anders", "Zeg ik liever niet"
+      ],
+      "required": false
+    }, {
+      "question": "Hoe oud ben je?",
+      "type": "number",
+      "required": false
+    }, {
+      "question": "Waar woon je?",
+      "type": "multipleChoice",
+      "answers": [
+        "Leiden", "Voorschoten", "Wassenaar", "Leiderdorp", "Ergens anders"
+      ],
+      "required": false
+    }]
   }, {
     "name": "Mediagebruik",
     "questions": [{
@@ -59,8 +56,15 @@
           "&lt30 min", "30 - 60 min", "1 - 2 uur", "&gt2 uur"
         ],
         "required": true
+      }, {
+        "question": "Hoeveel volgers heb je in totaal?",
+        "type": "multipleChoice",
+        "answers": [
+          "Geen account", "&lt10", "10-100", "100-1000", "&gt1000"
+        ],
+        "required": true
       }
     ]
   }],
-  "survey": ""
+  "survey": 0
 }

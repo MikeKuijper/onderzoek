@@ -9,13 +9,13 @@ function getQuestions() {
     })).then(res => {
 
       questions = res.data;
-      console.log(questions);
+      // console.log(questions);
       let sum = 0;
       for (let k in questions.sections) {
         let section = questions.sections[k];
         formatHeading(section.name);
         for (let i in section.questions) {
-          console.log(section.questions[i]);
+          // console.log(section.questions[i]);
           formatQuestion(section.questions[i], sum);
           sum++;
         }
@@ -63,7 +63,7 @@ function formatQuestion(obj, i) {
         column.appendChild(input);
         column.appendChild(label);
         row.appendChild(column);
-        if (count == 2) {
+        if (count == 2 || j == obj.answers.length - 1) {
           form.appendChild(row);
           row = document.createElement('div');
           row.setAttribute('class', 'row');
@@ -124,7 +124,7 @@ function send() {
   for (let i in questions.sections) {
     for (let j in questions.sections[i].questions) {
       let q = questions.sections[i].questions[j];
-      console.log(q);
+      // console.log(q);
       if (q.type == 'multipleChoice') {
         for (let k in q.answers) {
           if (document.getElementById(`${sum}-${k}`).checked) {
@@ -135,30 +135,22 @@ function send() {
         }
       }
       if (q.type == 'number') {
-        console.log(sum);
         obj.answers.push(document.getElementById(`${sum}`).value);
       }
       if (q.type == 'text') {
-        console.log(sum);
         obj.answers.push(document.getElementById(`${sum}`).value);
       }
       obj.required.push(q.required);
       sum++;
     }
   }
-  // for (let i in obj.answers) {
-  //   if (obj.answers[i] == null || obj.answers[i] == "") {
-  //     if (obj.required[i] == true) {
-  //       //console.log(`Please fill something in at question ${parseInt(i) + 1}`);
-  //       err = true;
-  //     }
-  //   }
-  // }
+
   for (let a in obj.required) {
     if (obj.required[a] == true) {
       if (obj.answers[a] == null || obj.answers[a].length == 0) {
-        console.log(`Please fill something in at question ${parseInt(a) + 1}`);
+        showError(`Vraag ${parseInt(a) + 1} is verplicht.`);
         err = true;
+        break;
       }
     }
   }
@@ -173,14 +165,17 @@ function send() {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*'
         },
-        body: JSON.stringify(obj)
+        body: JSON.stringify({
+          "answers": obj.answers,
+          "survey": obj.survey
+        })
       }).then(res => res.json())
       .then((res) => {
         console.log(res);
         if (res.success == true) {
           showThanks();
         } else if (res.success == false) {
-          console.log("Server failed");
+          showError("Dit antwoord wordt niet door de server geaccepteerd");
         }
       });
   }
@@ -192,4 +187,9 @@ function showThanks() {
   document.getElementById("everything").style.maxHeight = "100vh";
   document.getElementById("everything").style.overflow = "hidden";
   document.getElementById("thanks").style.visibility = "visible";
+}
+
+function showError(err) {
+  document.getElementById("error").style.display = "block";
+  document.getElementById("errorText").innerHTML = err;
 }
