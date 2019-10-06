@@ -23,6 +23,11 @@
         "Leiden", "Voorschoten", "Wassenaar", "Leiderdorp", "Ergens anders"
       ],
       "required": false
+    },
+  {
+    "question": "Voordat je verder gaat",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in maximus augue, in sagittis mauris. Quisque euismod a nibh eget ornare. Duis fermentum fermentum erat, quis pretium enim lacinia vitae. Ut condimentum sapien et tellus malesuada, sit amet ultricies ligula gravida. Duis aliquet rutrum urna sed scelerisque.",
+    "type": "paragraph"
     }]
   }, {
     "name": "Mediagebruik",

@@ -11,12 +11,14 @@ function getQuestions() {
       questions = res.data;
       // console.log(questions);
       let sum = 0;
+      let offset = 0;
       for (let k in questions.sections) {
         let section = questions.sections[k];
         formatHeading(section.name);
         for (let i in section.questions) {
           // console.log(section.questions[i]);
-          formatQuestion(section.questions[i], sum);
+          if (section.questions[i].type == "paragraph") offset--;
+          formatQuestion(section.questions[i], sum + offset);
           sum++;
         }
       }
@@ -25,18 +27,22 @@ function getQuestions() {
 
 function formatQuestion(obj, i) {
   let form = document.createElement("form");
-  i++;
-
-  let number = document.createElement("h2");
-  number.innerHTML = i;
-  number.setAttribute('class', 'number');
 
   let title = document.createElement("h2");
   let aft = (obj.required) ? "*" : "";
   title.innerHTML = obj.question + aft;
   title.setAttribute('class', 'questionTitle');
 
-  form.appendChild(number);
+  i++;
+
+  if (obj.type != "paragraph") {
+    let number = document.createElement("h2");
+    number.innerHTML = i;
+    number.setAttribute('class', 'number');
+    form.appendChild(number);
+  }
+  console.log(i);
+
   form.appendChild(title);
 
   switch (obj.type) {
@@ -97,6 +103,17 @@ function formatQuestion(obj, i) {
       let brk3 = document.createElement('br');
       form.appendChild(brk3);
       break;
+    case "paragraph":
+      let row4 = document.createElement('div');
+      let text = document.createElement('h');
+      // text.setAttribute('class', 'textInput');
+      text.innerHTML = obj.text;
+      row4.appendChild(text);
+      row4.setAttribute('class', 'row');
+      form.appendChild(row4);
+      let brk4 = document.createElement('br');
+      form.appendChild(brk4);
+      break;
   }
 
   document.getElementById("content").appendChild(form);
@@ -121,26 +138,27 @@ function send() {
   };
   obj.survey = questions.survey;
   let sum = 0;
+  let offset = 0;
   for (let i in questions.sections) {
     for (let j in questions.sections[i].questions) {
       let q = questions.sections[i].questions[j];
-      // console.log(q);
+      if (q.type == 'paragraph') offset--;
       if (q.type == 'multipleChoice') {
         for (let k in q.answers) {
-          if (document.getElementById(`${sum}-${k}`).checked) {
+          if (document.getElementById(`${sum + offset}-${k}`).checked) {
             obj.answers.push(parseInt(k));
             break;
           }
-          if (k == q.answers.length - 1 && !document.getElementById(`${sum}-${k}`).checked) obj.answers.push(null);
+          if (k == q.answers.length - 1 && !document.getElementById(`${sum + offset}-${k}`).checked) obj.answers.push(null);
         }
       }
       if (q.type == 'number') {
-        obj.answers.push(document.getElementById(`${sum}`).value);
+        obj.answers.push(document.getElementById(`${sum + offset}`).value);
       }
       if (q.type == 'text') {
-        obj.answers.push(document.getElementById(`${sum}`).value);
+        obj.answers.push(document.getElementById(`${sum + offset}`).value);
       }
-      obj.required.push(q.required);
+      if (q.type != 'paragraph') obj.required.push(q.required);
       sum++;
     }
   }
@@ -175,7 +193,7 @@ function send() {
         if (res.success == true) {
           showThanks();
         } else if (res.success == false) {
-          showError("Dit antwoord wordt niet door de server geaccepteerd");
+          showBig("Oeps", "Dit antwoord wordt niet door de server geaccepteerd");
         }
       });
   }
@@ -187,6 +205,16 @@ function showThanks() {
   document.getElementById("everything").style.maxHeight = "100vh";
   document.getElementById("everything").style.overflow = "hidden";
   document.getElementById("thanks").style.visibility = "visible";
+}
+
+function showBig(title, subtitle) {
+  window.scrollTo(0, 0);
+  document.getElementById("everything").style.visibility = "hidden";
+  document.getElementById("everything").style.maxHeight = "100vh";
+  document.getElementById("everything").style.overflow = "hidden";
+  document.getElementById("thanks").style.visibility = "visible";
+  document.getElementById("messageTitle").innerHTML = title;
+  document.getElementById("messageSubTitle").innerHTML = subtitle;
 }
 
 function showError(err) {

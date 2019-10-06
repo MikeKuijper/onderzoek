@@ -21,6 +21,12 @@ h {
   font-weight: normal;
 }
 
+p {
+  font-size: 12;
+  font-weight: normal;
+  color: #ffffff;
+}
+
 h2 {
   font-size: 4.5rem;
   font-weight: normal;
