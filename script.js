@@ -158,7 +158,7 @@ function send() {
 
   if (!err && !sent) {
     sent = true;
-    fetch('http://192.168.74.1:4001', {
+    fetch('https://cors-anywhere.herokuapp.com/http://onderzoek.mikelodeon.nl:8080/', {
         method: 'post',
         headers: {
           'Accept': 'application/json, text/plain, */*',
