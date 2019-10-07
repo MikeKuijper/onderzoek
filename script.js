@@ -172,7 +172,10 @@ function send() {
       }
     }
   }
-  console.log(obj);
+
+  let time = new Date();
+  let formatted_date = time.getFullYear() + "-" + addZeroes(time.getMonth() + 1) + "-" + addZeroes(time.getDate()) + " " + addZeroes(time.getHours()) + ":" + addZeroes(time.getMinutes()) + ":" + addZeroes(time.getSeconds());
+  console.log(formatted_date)
 
   if (!err && !sent) {
     sent = true;
@@ -185,7 +188,8 @@ function send() {
         },
         body: JSON.stringify({
           "answers": obj.answers,
-          "survey": obj.survey
+          "survey": obj.survey,
+          "time": formatted_date
         })
       }).then(res => res.json())
       .then((res) => {
@@ -220,4 +224,11 @@ function showBig(title, subtitle) {
 function showError(err) {
   document.getElementById("error").style.display = "block";
   document.getElementById("errorText").innerHTML = err;
+}
+
+function addZeroes(n) {
+  if (n <= 9) {
+    return "0" + n;
+  }
+  return n
 }
