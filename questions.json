@@ -24,6 +24,10 @@
           ],
           "required": false
         }, {
+          "question": "Wat is je postcode?",
+          "type": "number",
+          "required": false
+        }, {
           "question": "Heb je een broer of zus?",
           "type": "multipleChoice",
           "answers": [
