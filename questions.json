@@ -184,8 +184,8 @@
           "required": false
         }, {
           "question": "Ga je akkoord met de voorwaarden?",
-          "type": "multipleChoise",
-          "answers": ["Ja", "Nee"],
+          "type": "multipleChoice",
+          "answers": ["Ja"],
           "required": true
         }
       ]
