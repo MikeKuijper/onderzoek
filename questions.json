@@ -176,7 +176,7 @@
           "type": "paragraph"
         }, {
           "question": "Wat is je e-mailadres?",
-          "type": "number",
+          "type": "text",
           "required": false
         }
       ]
