@@ -26,7 +26,7 @@
       <!-- <br> -->
 
       <div>
-        <h2 class="subtitle" style="text-align: center; font-size: 3rem">Door het invullen van deze vragenlijst gaat u akkoord met onze Algemene Voorwaarden</h2>
+        <h2 class="subtitle" style="text-align: center; font-size: 3rem">Door het invullen van deze vragenlijst ga je akkoord met onze Algemene Voorwaarden</h2>
       </div>
 
       <!-- <h2 class="title" style="color: #ffffff; font-size: 4rem;">Persoonlijke informatie</h2> -->
@@ -195,31 +195,31 @@
 <script>
   getQuestions()
 
-  var bgImageArray = ["bg1.png", "bg2.png", "bg3.png"],
-    base = "./media/",
-    secs = 8;
-  bgImageArray.forEach(function(img) {
-    new Image().src = base + img;
-  });
-
-  function backgroundSequence() {
-    window.clearTimeout();
-    var k = 0;
-    for (i = 0; i < bgImageArray.length; i++) {
-      setTimeout(function() {
-        document.getElementById('header').style.background = "url(" + base + bgImageArray[k] + ") no-repeat center center fixed";
-        document.getElementById('header').style.backgroundSize = "cover";
-        if ((k + 1) === bgImageArray.length) {
-          setTimeout(function() {
-            backgroundSequence()
-          }, (secs * 1000))
-        } else {
-          k++;
-        }
-      }, (secs * 1000) * i)
-    }
-  }
-  backgroundSequence();
+  // var bgImageArray = ["bg1.png", "bg2.png", "bg3.png"],
+  //   base = "./media/",
+  //   secs = 8;
+  // bgImageArray.forEach(function(img) {
+  //   new Image().src = base + img;
+  // });
+  //
+  // function backgroundSequence() {
+  //   window.clearTimeout();
+  //   var k = 0;
+  //   for (i = 0; i < bgImageArray.length; i++) {
+  //     setTimeout(function() {
+  //       document.getElementById('header').style.background = "url(" + base + bgImageArray[k] + ") no-repeat center center fixed";
+  //       document.getElementById('header').style.backgroundSize = "cover";
+  //       if ((k + 1) === bgImageArray.length) {
+  //         setTimeout(function() {
+  //           backgroundSequence()
+  //         }, (secs * 1000))
+  //       } else {
+  //         k++;
+  //       }
+  //     }, (secs * 1000) * i)
+  //   }
+  // }
+  // backgroundSequence();
 </script>
 
 </html>

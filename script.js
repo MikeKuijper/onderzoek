@@ -65,7 +65,7 @@ function formatQuestion(obj, i) {
         label.setAttribute('for', `${i-1}-${j}`);
         label.setAttribute("style", `padding-left: 5vw`);
         label.innerHTML = obj.answers[j];
-        if (obj.answers[j].length > 8) label.setAttribute('style', "font-size: 1.2em; padding-left: 5vw");
+        if (obj.answers[j].length > 8) label.setAttribute('style', "font-size: 1.1em; padding-left: 5vw");
         column.appendChild(input);
         column.appendChild(label);
         row.appendChild(column);
