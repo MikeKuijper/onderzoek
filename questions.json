@@ -171,7 +171,7 @@
     }, {
       "name": "Tot slot",
       "questions": [{
-          "question": "Tot slot",
+          "question": "Resultaten",
           "text": "Als je wilt kun je hieronder je e-mailadres invullen. Daar doen we niks mee, behalve dat we je aan het einde van het onderzoek de onderzoeksresultaten toesturen.",
           "type": "paragraph"
         }, {
