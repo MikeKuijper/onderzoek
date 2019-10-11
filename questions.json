@@ -168,6 +168,18 @@
           "required": true
         }
       ]
+    }, {
+      "name": "Tot slot",
+      "questions": [{
+          "question": "Tot slot",
+          "text": "Als je wilt kun je hieronder je e-mailadres invullen. Daar doen we niks mee, behalve dat we je aan het einde van het onderzoek de onderzoeksresultaten toesturen.",
+          "type": "paragraph"
+        }, {
+          "question": "Wat is je e-mailadres?",
+          "type": "number",
+          "required": false
+        }
+      ]
     }
   ],
   "survey": 0
