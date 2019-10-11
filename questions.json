@@ -182,6 +182,11 @@
           "question": "Wat is je e-mailadres?",
           "type": "text",
           "required": false
+        }, {
+          "question": "Ga je akkoord met de voorwaarden?",
+          "type": "multipleChoise",
+          "answers": ["Ja"],
+          "required": true
         }
       ]
     }
