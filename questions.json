@@ -25,7 +25,7 @@
           "required": false
         }, {
           "question": "Wat is je postcode?",
-          "type": "number",
+          "type": "text",
           "required": false
         }, {
           "question": "Heb je een broer of zus?",
