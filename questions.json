@@ -31,7 +31,7 @@
           "question": "Heb je een broer of zus?",
           "type": "multipleChoice",
           "answers": [
-            "Enig kind", "Broer", "Zus", "Broer en zus"
+            "Enig kind", "Broer(s)", "Zus(sen)", "Broer(s) + zus(sen)"
           ],
           "required": false
         }
@@ -99,7 +99,7 @@
           "question": "Wat wil je vanavond eten?",
           "type": "multipleChoice",
           "answers": [
-            "PIZZA!", "BBQ - veel vlees", "Iets met groente", "CAKE!", "Geroosterd broodje met salade"
+            "Pizza", "BBQ - veel vlees", "Iets met groente", "Cake", "Geroosterd broodje met salade"
           ],
           "required": true
         },
@@ -115,25 +115,32 @@
           "question": "Stel, je mag maar één ding eten, wat eet je?",
           "type": "multipleChoice",
           "answers": [
-            "Snoep of koek", "Fruit oid", "BIGMAC", "Brood", "Nasi of bami"
+            "Snoep of koek", "Fruit oid", "BigMac", "Brood", "Nasi of bami"
           ],
           "required": true
         }, {
           "question": "Als alles mocht, wat had je vanmiddag dan op je brood gesmeerd?",
           "type": "multipleChoice",
           "answers": [
-            "Iets zoets", "Vlees ofzo", "IK WIL KAAS", "Fruit ofzo", "Iets vers van de bakker"
+            "Iets zoets", "Vlees ofzo", "Kaas", "Fruit ofzo", "Iets vers van de bakker"
           ],
           "required": true
         }, {
           "question": "Etenstijd!",
-          "text": "Je krijgt nu wat te eten, vul daarna de rest van de vragen in",
+          "text": "Je krijgt nu misschien wat te eten, vul daarna de rest van de vragen in",
           "type": "paragraph"
         }
       ]
     }, {
       "name": "Deel 3",
       "questions": [{
+          "question": "Wat heb je net te eten gekregen?",
+          "type": "multipleChoice",
+          "answers": [
+            "Cracker", "Kruidnoot", "Appel", "Niks :("
+          ],
+          "required": true
+        },{
           "question": "Wat voor soort salade zou je nu willen eten?",
           "type": "multipleChoice",
           "answers": [
@@ -150,7 +157,7 @@
           "required": true
         },
         {
-          "question": "Wat pizza eet je het liefst?",
+          "question": "Welke pizza eet je het liefst?",
           "type": "multipleChoice",
           "answers": [
             "Hawaii", "Salami", "Champignons", "Margherita", "Mozzarella, basilicum en tomaat"
