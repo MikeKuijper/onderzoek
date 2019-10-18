@@ -137,7 +137,7 @@
           "question": "Wat heb je net te eten gekregen?",
           "type": "multipleChoice",
           "answers": [
-            "Cracker", "Kruidnoot", "Appel", "Niks :("
+            "Snoep", "Kruidnoot", "Appel", "Niks :("
           ],
           "required": true
         },{
